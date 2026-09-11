@@ -471,6 +471,27 @@ section {
   margin-bottom: 12px;
 }
 
+.gradient-heading {
+  display: inline-block;
+  background: linear-gradient(110deg, #6d28d9 0%, #8b5cf6 42%, #c4b5fd 72%, #f8f7ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 4px 18px rgba(139, 92, 246, 0.12);
+}
+
+.section-head .gradient-heading::after,
+.about-card .gradient-heading::after,
+.contact-card .gradient-heading::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8b5cf6, #ddd6fe);
+}
+
 .section-head p {
   color: var(--muted);
   font-size: 1.05rem;

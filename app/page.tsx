@@ -141,6 +141,7 @@ export default function Home() {
           <div className="wrap about-grid">
             <div className="about-card reveal in">
               <h2
+                className="gradient-heading"
                 style={{
                   fontSize: "1.6rem",
                   fontWeight: 700,
@@ -221,7 +222,7 @@ export default function Home() {
         <section id="skills">
           <div className="wrap">
             <div className="section-head">
-              <h2>Skills</h2>
+              <h2 className="gradient-heading">Skills</h2>
               <p>
                 The core building blocks I work with right now — and keep
                 sharpening.
@@ -275,7 +276,7 @@ export default function Home() {
         <section id="projects">
           <div className="wrap">
             <div className="section-head">
-              <h2>Projects</h2>
+              <h2 className="gradient-heading">Projects</h2>
               <p>What I&apos;ve actually built so far.</p>
             </div>
             <div className="project-card reveal">
@@ -352,7 +353,7 @@ export default function Home() {
         <section id="interests">
           <div className="wrap">
             <div className="section-head">
-              <h2>Interests</h2>
+              <h2 className="gradient-heading">Interests</h2>
               <p>The things that keep me curious, active, and creating.</p>
             </div>
             <div className="interests-grid">
@@ -368,7 +369,7 @@ export default function Home() {
         <section id="education">
           <div className="wrap">
             <div className="section-head">
-              <h2>Education</h2>
+              <h2 className="gradient-heading">Education</h2>
               <p>My academic path so far.</p>
             </div>
             <div className="timeline">
@@ -432,7 +433,7 @@ export default function Home() {
         <section id="achievements">
           <div className="wrap">
             <div className="section-head">
-              <h2>Achievements</h2>
+              <h2 className="gradient-heading">Achievements</h2>
               <p>Real milestones, not filler.</p>
             </div>
             <div className="ach-grid">
@@ -487,7 +488,7 @@ export default function Home() {
         <section id="contact">
           <div className="wrap">
             <div className="contact-card reveal">
-              <h2>Let&apos;s talk</h2>
+              <h2 className="gradient-heading">Let&apos;s talk</h2>
               <p>
                 Whether it&apos;s an opportunity, a project, or just a chat
                 about football — my inbox is open.
