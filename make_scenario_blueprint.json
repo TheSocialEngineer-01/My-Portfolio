@@ -1,0 +1,104 @@
+{
+  "name": "Portfolio Lead Automation",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebhook",
+      "version": 1,
+      "parameters": {
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "expect": [
+          {
+            "name": "name",
+            "type": "text",
+            "label": "Name"
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email"
+          },
+          {
+            "name": "subject",
+            "type": "text",
+            "label": "Subject"
+          },
+          {
+            "name": "message",
+            "type": "text",
+            "label": "Message"
+          },
+          {
+            "name": "submittedAt",
+            "type": "text",
+            "label": "Submitted At"
+          },
+          {
+            "name": "source",
+            "type": "text",
+            "label": "Source"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "module": "google-sheets:action-add-a-row",
+      "version": 4,
+      "parameters": {},
+      "filter": {
+        "name": "Validate Lead & Filter Spam",
+        "formula": "{{1.name}} && {{1.email}} && {{1.message}}"
+      },
+      "mapper": {
+        "mode": "select",
+        "tableId": "Leads",
+        "values": {
+          "0": "LEAD-{{now}}",
+          "1": "{{formatDate(now; \"YYYY-MM-DD\")}}",
+          "2": "{{formatDate(now; \"HH:mm\")}}",
+          "3": "{{1.name}}",
+          "4": "{{1.email}}",
+          "5": "{{1.subject}}",
+          "6": "{{1.message}}",
+          "7": "{{1.source}}",
+          "8": "New"
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "gmail:action-send-an-email",
+      "version": 2,
+      "parameters": {},
+      "mapper": {
+        "to": [
+          "anubhavbudek10@gmail.com"
+        ],
+        "subject": "New Portfolio Contact — {{1.name}}",
+        "content": "<h2>New Portfolio Contact Request</h2><p>You have received a new contact submission from your portfolio website.</p><hr/><p><strong>Name:</strong> {{1.name}}</p><p><strong>Email:</strong> <a href=\"mailto:{{1.email}}\">{{1.email}}</a></p><p><strong>Subject:</strong> {{1.subject}}</p><p><strong>Submitted At:</strong> {{1.submittedAt}}</p><br/><p><strong>Message:</strong></p><blockquote style=\"background: #f4f4f5; padding: 12px; border-left: 4px solid #6c63ff;\">{{1.message}}</blockquote><hr/><p><small>Sent via Make.com Automation from Portfolio Website</small></p>",
+        "contentType": "html",
+        "replyTo": "{{1.email}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        }
+      }
+    }
+  ]
+}

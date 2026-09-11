@@ -6,6 +6,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { NavBar } from "@/components/NavBar";
 import { HeroScroll } from "@/components/HeroScroll";
 import { HeroBackground } from "@/components/HeroBackground";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -491,23 +492,27 @@ export default function Home() {
               <h2 className="gradient-heading">Let&apos;s talk</h2>
               <p>
                 Whether it&apos;s an opportunity, a project, or just a chat
-                about football — my inbox is open.
+                about technology or football — send me a message below or reach out directly.
               </p>
-              <div className="contact-actions">
-                <a
-                  href="mailto:anubhavbudek10@gmail.com"
-                  className="btn btn-primary"
-                >
-                  anubhavbudek10@gmail.com
-                </a>
-                <a
-                  href="https://github.com/TheSocialEngineer-01"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-secondary"
-                >
-                  GitHub
-                </a>
+              <ContactForm />
+              <div className="contact-direct-links">
+                <span>Or connect directly via:</span>
+                <div className="contact-actions">
+                  <a
+                    href="mailto:anubhavbudek10@gmail.com"
+                    className="btn btn-secondary btn-sm"
+                  >
+                    anubhavbudek10@gmail.com
+                  </a>
+                  <a
+                    href="https://github.com/TheSocialEngineer-01"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-secondary btn-sm"
+                  >
+                    GitHub
+                  </a>
+                </div>
               </div>
             </div>
           </div>

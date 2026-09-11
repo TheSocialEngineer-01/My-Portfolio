@@ -943,12 +943,239 @@ section {
 }
 
 .contact-card h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); margin-bottom: 14px; }
-.contact-card p { color: var(--muted); max-width: 480px; margin: 0 auto 32px; }
+.contact-card p { color: var(--muted); max-width: 540px; margin: 0 auto 32px; }
+
+/* Contact Form Styling */
+.contact-form-wrapper {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-group label .req {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: var(--bg);
+  border: none;
+  box-shadow: var(--inset);
+  color: var(--fg);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: box-shadow 250ms ease-out, background 250ms ease-out;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--placeholder);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  box-shadow: var(--inset-deep), 0 0 0 2px var(--accent);
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+  box-shadow: inset 4px 4px 8px rgba(220, 38, 38, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.5), 0 0 0 2px #ef4444;
+}
+
+.field-error {
+  font-size: 0.82rem;
+  color: #dc2626;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Honeypot field (hidden visually from real users) */
+.hp-field {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Form Error Banner */
+.form-error-banner {
+  background: var(--bg);
+  box-shadow: var(--ext-sm);
+  border-left: 4px solid #ef4444;
+  padding: 14px 18px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #b91c1c;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-error-banner .error-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  stroke: #ef4444;
+}
+
+/* Submit Button & Spinner */
+.submit-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 16px 28px;
+  font-size: 1rem;
+  margin-top: 6px;
+  background: var(--bg);
+  box-shadow: var(--ext);
+  color: var(--accent);
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out, color 200ms ease-out;
+}
+
+.submit-btn:hover:not(:disabled) {
+  box-shadow: var(--ext-hover);
+  color: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.submit-btn:active:not(:disabled) {
+  box-shadow: var(--inset);
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.send-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 250ms ease-out;
+}
+
+.submit-btn:hover .send-icon {
+  transform: translateX(3px) translateY(-3px);
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(108, 99, 255, 0.25);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 750ms linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Contact Success Card */
+.contact-success-card {
+  background: var(--bg);
+  box-shadow: var(--ext-sm);
+  border-radius: 24px;
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: fadeIn 400ms ease-out;
+}
+
+.contact-success-card .success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  box-shadow: var(--inset-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-secondary);
+}
+
+.contact-success-card .success-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.contact-success-card h3 {
+  font-size: 1.4rem;
+  color: var(--fg);
+}
+
+.contact-success-card p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  max-width: 420px;
+  margin: 0;
+}
+
+.contact-direct-links {
+  border-top: 1px solid rgba(163, 177, 198, 0.3);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-direct-links span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .contact-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-sm { padding: 10px 20px; font-size: 0.88rem; border-radius: 14px; }
+.btn-secondary { background: var(--bg); box-shadow: var(--ext-sm); color: var(--fg); }
+.btn-secondary:hover { box-shadow: var(--ext); color: var(--accent); }
 
 footer { padding: 36px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
 
 @media (max-width: 640px) {
   section { padding: 64px 0; }
   .about-card, .contact-card, .project-card { padding: 28px; }
+  .form-row { grid-template-columns: 1fr; gap: 16px; }
 }
+
