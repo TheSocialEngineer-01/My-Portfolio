@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,8 +12,15 @@ export const NavBar = () => {
   return (
     <header>
       <div className="nav-inner">
-        <a href="#top" className="logo" onClick={closeMenu}>
-          AB
+        <a href="#top" className="logo" onClick={closeMenu} aria-label="Go to Anubhav Budek home">
+          <Image
+            src="/profile.jpg"
+            alt="Anubhav Budek"
+            width={48}
+            height={48}
+            className="brand-avatar"
+          />
+          <span className="brand-name">Anubhav Budek</span>
         </a>
         <nav id="nav" className={isOpen ? "open" : ""}>
           <ul>
@@ -29,6 +37,11 @@ export const NavBar = () => {
             <li>
               <a href="#projects" onClick={closeMenu}>
                 Projects
+              </a>
+            </li>
+            <li>
+              <a href="#interests" onClick={closeMenu}>
+                Interests
               </a>
             </li>
             <li>

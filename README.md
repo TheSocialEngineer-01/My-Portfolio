@@ -45,9 +45,9 @@ Designed with **proof-of-ability** and **recruiter UX** as top priorities, the a
 - Full compliance with `prefers-reduced-motion` media queries.
 - Semantic HTML5 structure with ARIA labels, responsive drawer navigation, and zero accessibility blockers.
 
-### 5. 📱 Dual Implementation (Next.js 14 + Static Prototype)
+### 5. 📱 Primary Application + Static Prototype
 - Primary application: **Next.js 14 App Router** with full TypeScript typing and component-driven architecture.
-- Standalone zero-dependency prototype (`index.html`, `style.css`, `script.js`) included for instant browser execution without Node.js tooling.
+- Standalone zero-dependency prototype is preserved in `examples/static-prototype/` for instant browser execution without Node.js tooling.
 
 ---
 
@@ -93,14 +93,14 @@ Portfolio/
 │   ├── Phases.md              # Project milestones and future roadmap
 │   ├── DESIGN Dark.md.md      # Dark Neumorphism specifications
 │   └── DESIGN Light.md.md     # Light Neumorphism specifications
+├── examples/
+│   └── static-prototype/      # Zero-dependency HTML/CSS/JS version
+├── archive/                   # Historical repository notes kept for traceability
 ├── public/                    # Static assets
-├── index.html                 # Standalone static prototype
-├── style.css                  # Standalone CSS design system
-├── script.js                  # Standalone vanilla JS interactions
 ├── tailwind.config.ts         # Custom color tokens, shadows, and radii
 ├── tsconfig.json              # Path aliases (`@/*`) & TypeScript configuration
 ├── package.json               # Dependencies & scripts
-└── .gitignore                 # Next.js and environment exclusions
+├── .gitignore                 # Next.js and environment exclusions
 ```
 
 ---
@@ -135,6 +135,13 @@ Portfolio/
    npm run build
    npm run start
    ```
+
+### Reviewing the project
+
+- Start with `app/page.tsx` for the page composition and interaction logic.
+- Read `components/` for reusable UI behavior and `app/globals.css` for the design system.
+- Read `docs/Architecture.md` for the technical structure and `docs/Phases.md` for the roadmap.
+- Open `examples/static-prototype/index.html` directly to review the dependency-free version.
 
 ---
 

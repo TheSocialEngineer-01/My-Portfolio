@@ -2,11 +2,14 @@
 
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { Hero } from "@/components/ui/tailwind-css-background-snippet";
 
 export const HeroScroll = () => {
   return (
-    <div className="flex flex-col overflow-hidden">
-      <ContainerScroll
+    <Hero className="flex flex-col">
+      <div className="relative z-10 flex flex-col overflow-hidden">
+        <ContainerScroll
         titleComponent={
           <div className="flex flex-col items-center justify-center px-4 -mt-8 md:-mt-16 pb-4">
             <div className="pill mb-3 md:mb-4">
@@ -27,18 +30,18 @@ export const HeroScroll = () => {
               the way. Off-screen, you&apos;ll find me on a football pitch or
               putting a video together.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-5 md:mt-7 relative z-30">
-              <a href="#projects" className="btn btn-primary shadow-lg hover:scale-105 transition-transform">
-                See my work
-              </a>
-              <a href="#contact" className="btn btn-secondary shadow-md hover:scale-105 transition-transform">
-                Get in touch
-              </a>
+            <div className="relative z-30 mt-5 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-7 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
+              <LiquidButton asChild variant="secondary" size="lg" className="w-full sm:w-auto">
+                <a href="#projects">See my work</a>
+              </LiquidButton>
+              <LiquidButton asChild variant="default" size="lg" className="w-full sm:w-auto">
+                <a href="#contact">Get in touch</a>
+              </LiquidButton>
             </div>
           </div>
         }
-      >
-        <div className="h-full w-full bg-[#E0E5EC] dark:bg-[#1E232A] rounded-xl p-4 md:p-6 flex flex-col justify-between shadow-inner border border-white/40">
+        >
+          <div className="h-full w-full bg-[#E0E5EC] dark:bg-[#1E232A] rounded-xl p-4 md:p-6 flex flex-col justify-between shadow-inner border border-white/40">
           {/* Mockup Window Header */}
           <div className="flex items-center justify-between pb-3 border-b border-[#3d4852]/10 dark:border-white/10">
             <div className="flex items-center gap-2">
@@ -128,8 +131,9 @@ export const HeroScroll = () => {
             <span>⚡ Next.js + Tailwind + Framer Motion</span>
             <span>📍 Gunupur, Odisha</span>
           </div>
-        </div>
-      </ContainerScroll>
-    </div>
+          </div>
+        </ContainerScroll>
+      </div>
+    </Hero>
   );
 };

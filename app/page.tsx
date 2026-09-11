@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { NavBar } from "@/components/NavBar";
 import { HeroScroll } from "@/components/HeroScroll";
+import { HeroBackground } from "@/components/HeroBackground";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -121,7 +123,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen">
+    <div ref={containerRef} className="portfolio-shell relative min-h-screen">
+      <div className="portfolio-background">
+        <HeroBackground />
+      </div>
       <ScrollProgress />
       <NavBar />
 
@@ -134,7 +139,7 @@ export default function Home() {
         {/* ABOUT SECTION */}
         <section id="about">
           <div className="wrap about-grid">
-            <div className="about-card reveal">
+            <div className="about-card reveal in">
               <h2
                 style={{
                   fontSize: "1.6rem",
@@ -145,27 +150,43 @@ export default function Home() {
                 About me
               </h2>
               <p>
-                I&apos;m currently pursuing my B.Tech in Computer Science
-                Engineering at GIET University, Gunupur — right now in my 2nd
-                year, 3rd semester. I&apos;m still early in the journey, learning
-                steadily and building my foundation in web development with
-                HTML, CSS and JavaScript.
+                I&apos;m a tech enthusiast, developer, and cybersecurity learner
+                who loves turning curiosity into things I can build and
+                understand.
               </p>
               <p>
-                Outside of coursework, two things keep me going: football, where
-                I&apos;ve learned what it actually takes to show up and work as a
-                team, and content creation, where I get to think about how to
-                explain and present ideas clearly — a habit that spills over into
-                how I approach building things.
+                I&apos;m fascinated by <strong>Cybersecurity, AI, and software
+                development</strong>, especially the process of breaking down
+                complex systems, analyzing the details, and figuring out how
+                things work beneath the surface.
               </p>
               <p>
-                I also completed an internship at Munition India Limited, where I
-                built an offline internship management app — my first real taste
-                of turning what I&apos;m learning into something that actually gets
-                used.
+                I enjoy challenges because they force me to think differently. I
+                code, experiment, create content, and constantly look for
+                something new to learn.
+              </p>
+              <p>
+                Outside the screen, I&apos;m usually playing <strong>football</strong>
+                — because whether it&apos;s technology or the game, I enjoy strategy,
+                competition, teamwork, and pushing myself further.
+              </p>
+              <p>
+                <strong>
+                  I don&apos;t just want to use technology. I want to understand it,
+                  build it, and challenge it.
+                </strong>
               </p>
             </div>
             <div className="stat-card reveal">
+              <div className="about-photo">
+                <Image
+                  src="/profile.jpg"
+                  alt="Anubhav Budek"
+                  fill
+                  sizes="(max-width: 820px) 100vw, 320px"
+                  priority
+                />
+              </div>
               <div className="stat">
                 <div
                   className="num"
@@ -231,6 +252,21 @@ export default function Home() {
                   and work.
                 </p>
               </div>
+              <div className="skill-card reveal">
+                <div className="skill-well">JV</div>
+                <h3>Java</h3>
+                <p>Building a stronger foundation in programming and problem solving.</p>
+              </div>
+              <div className="skill-card reveal">
+                <div className="skill-well">RC</div>
+                <h3>React</h3>
+                <p>Creating responsive interfaces from reusable components.</p>
+              </div>
+              <div className="skill-card reveal">
+                <div className="skill-well">CT</div>
+                <h3>Critical Thinking</h3>
+                <p>Breaking complex problems into clear, practical steps.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -285,6 +321,46 @@ export default function Home() {
                 </a>
               </div>
             </div>
+            <div className="project-card reveal project-card-secondary">
+              <div className="project-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+                  <path d="M8 7h8M8 11h6" />
+                </svg>
+              </div>
+              <div>
+                <div className="project-meta">Minor project · Campus Hub</div>
+                <h3>Campus Hub Webpage</h3>
+                <p className="desc">
+                  A campus-focused space for solving everyday student problems:
+                  finding lost items, buying and selling, exchanging notes,
+                  sharing skills, and connecting with the student community.
+                </p>
+                <div className="tag-row">
+                  <span className="tag">Campus community</span>
+                  <span className="tag">Lost &amp; found</span>
+                  <span className="tag">Notes exchange</span>
+                  <span className="tag">Skill exchange</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* INTERESTS SECTION */}
+        <section id="interests">
+          <div className="wrap">
+            <div className="section-head">
+              <h2>Interests</h2>
+              <p>The things that keep me curious, active, and creating.</p>
+            </div>
+            <div className="interests-grid">
+              <div className="interest-card reveal"><span>01</span><h3>Playing Football</h3><p>Strategy, teamwork, and competition away from the screen.</p></div>
+              <div className="interest-card reveal"><span>02</span><h3>Travelling</h3><p>Discovering new places, people, and perspectives.</p></div>
+              <div className="interest-card reveal"><span>03</span><h3>Coding</h3><p>Turning questions into experiments and useful things.</p></div>
+              <div className="interest-card reveal"><span>04</span><h3>Making Content</h3><p>Explaining ideas clearly and creatively.</p></div>
+            </div>
           </div>
         </section>
 
@@ -300,12 +376,19 @@ export default function Home() {
                 <div className="tl-dot">
                   <span></span>
                 </div>
-                <div className="tl-card">
+                <div className="tl-card reveal in">
                   <div className="when">Ongoing</div>
-                  <h3>B.Tech, Computer Science Engineering</h3>
+                  <h3>Bachelor of Technology (B.Tech.) – Computer Science and Engineering</h3>
                   <div className="school">
-                    GIET University, Gunupur — 2nd year, 3rd semester
+                    GIET University, Gunupur
                   </div>
+                  <p>
+                    Currently pursuing my Bachelor of Technology in Computer
+                    Science and Engineering as a 2nd-year student. Alongside my
+                    academic studies, I am exploring Cybersecurity, Artificial
+                    Intelligence, and Automation, while developing my technical
+                    skills through practical projects and hands-on learning.
+                  </p>
                   <span className="score">CGPA 8.0</span>
                 </div>
               </div>
@@ -313,10 +396,15 @@ export default function Home() {
                 <div className="tl-dot">
                   <span></span>
                 </div>
-                <div className="tl-card">
+                <div className="tl-card reveal in">
                   <div className="when">Intermediate</div>
-                  <h3>Higher Secondary</h3>
+                  <h3>Intermediate</h3>
                   <div className="school">IDM Public School, Balangir</div>
+                  <p>
+                    Completed Intermediate education with an overall score of
+                    62.33%, continuing my academic journey with a focus on
+                    building a foundation for higher education in technology.
+                  </p>
                   <span className="score">62.33%</span>
                 </div>
               </div>
@@ -324,10 +412,15 @@ export default function Home() {
                 <div className="tl-dot">
                   <span></span>
                 </div>
-                <div className="tl-card">
+                <div className="tl-card reveal in">
                   <div className="when">Matriculation</div>
-                  <h3>Secondary School</h3>
+                  <h3>Matriculation</h3>
                   <div className="school">IDM Public School, Balangir</div>
+                  <p>
+                    Successfully completed Matriculation with an overall score
+                    of 91%. This stage provided a strong academic foundation and
+                    developed the fundamentals necessary for further studies.
+                  </p>
                   <span className="score">91%</span>
                 </div>
               </div>
